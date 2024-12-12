@@ -6,12 +6,17 @@ class Def extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('머리 부분'),),
+      appBar: AppBar(title: Text('Def'),),
       body: Container(
         child: Column(
           children: [
-            ElevatedButton(onPressed: null, child: null)
-            ],
+            Text('Hello World!'),
+            Text('Welcome To Flutter!'),
+            Icon(Icons.star),
+            Image.asset('sample_image.jpg',
+                width: 300.0,
+                height: 300.0),
+          ],
         ),
       ),
       bottomNavigationBar: Text('Bottom 부분'),

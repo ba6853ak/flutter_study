@@ -10,12 +10,10 @@ class Home extends StatelessWidget {
       body: Container(
         child: Column(
           children: [
-            Text('Hello World!'),
-            Text('Welcome To Flutter!'),
-            Icon(Icons.star),
-            Image.asset('sample_image.jpg',
-              width: 300.0,
-                height: 300.0),
+            ElevatedButton(onPressed: () {
+              print('ElevatedButton Click');
+              Navigator.pushNamed(context, '/def');
+            }, child: Text('기본 위젯')),
           ],
         ),
       ),
