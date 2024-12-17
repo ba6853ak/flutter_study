@@ -30,10 +30,15 @@ class Home extends StatelessWidget {
               Navigator.pushNamed(context, '/bottomNavigationBar');
             }, child: Text('BottomNavigationBar')),
             SizedBox(height: 10,),
-            ElevatedButton(onPressed: () {
+            ElevatedButton(onPressed: () { // 익명함수라고 함.
               print('BoxCon Click');
               Navigator.pushNamed(context, '/boxCon');
             }, child: Text('BoxContainer')),
+            SizedBox(height: 10,),
+            ElevatedButton(onPressed: () { // 익명함수라고 함.
+              print('Con2 Click');
+              Navigator.pushNamed(context, '/con2');
+            }, child: Text('Con2')),
           ],
         ),
       ),

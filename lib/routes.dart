@@ -6,7 +6,7 @@ import 'def/RowColumn.dart';
 import 'def/star.dart';
 import 'def/bottom_navigation_bar.dart';
 import 'def/BoxCon.dart';
-
+import 'def/Con2.dart';
 // Java Map ( Hash Map Key:Value )
 final Map<String, WidgetBuilder> routes = {
   "/home": (context) => Home(),
@@ -16,4 +16,5 @@ final Map<String, WidgetBuilder> routes = {
   "/star": (context) => Star(),
   "/bottomNavigationBar": (context) => BottomNavigation(),
   "/boxCon": (context) => BoxCon(),
+  "/con2": (context) => Con2(),
 };
