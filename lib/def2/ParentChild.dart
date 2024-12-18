@@ -9,8 +9,33 @@ class ParentChild extends StatefulWidget {
 
 class _ParentChildState extends State<ParentChild> {
 
-
   int _count = 0;
+
+  // 자식이 부모를 부른다. ( reduce, React 리듀서 원리 )
+  void parentCall(String val) {
+    if( !val.isEmpty && val == "add"){
+      plusCount();
+    }
+    else if(!val.isEmpty && val == "remove"){
+      removeCount();
+    }
+    else if(!val.isEmpty && val == "reset"){
+      resetCount();
+    }
+  }
+
+  void resetCount() {
+    setState(() {
+      _count = 0;
+    });
+  }
+
+  void plusCount() {
+    setState(() {
+      _count++;
+    });
+  }
+
 
   void removeCount() {
     setState(() {
@@ -39,7 +64,6 @@ class _ParentChildState extends State<ParentChild> {
     return TextStyle(fontSize: outValue ?? 40.0);
   }
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -64,9 +88,7 @@ class _ParentChildState extends State<ParentChild> {
                           Container(
                             margin: EdgeInsets.all(16),
                             child: ElevatedButton(onPressed: () {
-                              setState(() {
-                                _count++;
-                              });
+                              plusCount();
                             }, child: Icon(Icons.add),),
                           ),
 
@@ -80,9 +102,7 @@ class _ParentChildState extends State<ParentChild> {
                           Container(
                             margin: EdgeInsets.all(16),
                             child: ElevatedButton(onPressed: () {
-                              setState(() {
-                                _count = 0;
-                              });
+                              resetCount();
                             }, child: Icon(Icons.arrow_back),),
                           ),
 
@@ -93,6 +113,7 @@ class _ParentChildState extends State<ParentChild> {
                 ),
                 Text('아래의 영역'),
                 _Child(childCnt: _count,),
+                _Child2(onEvt: parentCall),
               ],
             ),
           ],
@@ -101,7 +122,6 @@ class _ParentChildState extends State<ParentChild> {
     );
   }
 }
-
 
 class _Child extends StatelessWidget {
 
@@ -114,13 +134,51 @@ class _Child extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 600,
-      height: 400,
+      height: 100,
       decoration: BoxDecoration(
-
-        border: Border.all(width: 5, color: Colors.blueAccent),
-
+        border: Border.all(width: 5, color: Colors.redAccent),
       ),
       child: Text('부모로부터 받은 값: ${childCnt}'),
     );
   }
 }
+
+
+class _Child2 extends StatelessWidget {
+  final Function(String) onEvt;
+  const _Child2({required this.onEvt, super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 600,
+      height: 100,
+      decoration: BoxDecoration(
+        border: Border.all(width: 5, color: Colors.blueAccent),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            margin: EdgeInsets.all(16),
+            child: FloatingActionButton(onPressed: () {
+              onEvt('add');
+            }, child: Icon(Icons.add),),
+          ),
+          Container(
+            margin: EdgeInsets.all(16),
+            child: FloatingActionButton(onPressed: () {
+              onEvt('remove');
+            }, child: Icon(Icons.remove),),
+          ),
+          Container(
+            margin: EdgeInsets.all(16),
+            child: FloatingActionButton(onPressed: () {
+              onEvt('reset');
+            }, child: Icon(Icons.arrow_back),),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
