@@ -5,6 +5,7 @@ class Con2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.pink[50],
@@ -36,6 +37,9 @@ class _Top extends StatefulWidget {
 }
 
 class _TopState extends State<_Top> {
+
+  int count = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -52,9 +56,23 @@ class _TopState extends State<_Top> {
           ),),
           Text('2024.12.13'),
           SizedBox(height: 8,),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.favorite, color: Colors.red,),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: () {
+                  setState(() {
+                    count++;
+                  });
+                },
+                icon: Icon(Icons.favorite, color: Colors.red,),
+              ),
+              Text("좋아요"),
+              Container(
+                margin: EdgeInsets.only(left: 10),
+                  child: Text("${count}")),
+            ],
           ),
           SizedBox(height: 8,),
           Text('D+100', style: TextStyle(
@@ -66,11 +84,6 @@ class _TopState extends State<_Top> {
     );
   }
 }
-
-
-
-
-
 
 // 아랫 동네
 class _Img extends StatefulWidget {

@@ -7,6 +7,8 @@ import 'def/star.dart';
 import 'def/bottom_navigation_bar.dart';
 import 'def/BoxCon.dart';
 import 'def/Con2.dart';
+import 'def2/Counter.dart';
+import 'def2/ParentChild.dart';
 // Java Map ( Hash Map Key:Value )
 final Map<String, WidgetBuilder> routes = {
   "/home": (context) => Home(),
@@ -17,4 +19,6 @@ final Map<String, WidgetBuilder> routes = {
   "/bottomNavigationBar": (context) => BottomNavigation(),
   "/boxCon": (context) => BoxCon(),
   "/con2": (context) => Con2(),
+  "/counter": (context) => Counter(),
+  "/parentChild": (context) => ParentChild(),
 };

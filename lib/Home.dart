@@ -39,6 +39,16 @@ class Home extends StatelessWidget {
               print('Con2 Click');
               Navigator.pushNamed(context, '/con2');
             }, child: Text('Con2')),
+            SizedBox(height: 10,),
+            ElevatedButton(onPressed: () { // 익명함수라고 함.
+              print('Counter Click');
+              Navigator.pushNamed(context, '/counter');
+            }, child: Text('Counter')),
+            SizedBox(height: 10,),
+            ElevatedButton(onPressed: () { // 익명함수라고 함.
+              print('ParentChild Click');
+              Navigator.pushNamed(context, '/parentChild');
+            }, child: Text('값 건네받기')),
           ],
         ),
       ),
