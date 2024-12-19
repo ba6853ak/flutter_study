@@ -49,6 +49,11 @@ class Home extends StatelessWidget {
               print('ParentChild Click');
               Navigator.pushNamed(context, '/parentChild');
             }, child: Text('값 건네받기')),
+            SizedBox(height: 10,),
+            ElevatedButton(onPressed: () { // 익명함수라고 함.
+              print('FormW Click');
+              Navigator.pushNamed(context, '/formW');
+            }, child: Text('FormW')),
           ],
         ),
       ),
